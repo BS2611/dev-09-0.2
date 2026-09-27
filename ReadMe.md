@@ -12,3 +12,6 @@
 
 
 
+
+
+Backend note: data is stored in a SQLite database (data/my-goal-tracker.db) that is created automatically at runtime. No manual database setup is required.
