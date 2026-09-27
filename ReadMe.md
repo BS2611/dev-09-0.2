@@ -1,16 +1,9 @@
 # Name of application: My Goal Tracker
 
-# Who did what
-
-# Version: 0.2
-1. Keerat Kaur: Updated the ReadMe
-2. Sujata Giri: Worked on the Home page and Goal page user interface
-3. Bhavpreet Singh: Worked on the backend
-
-# Technical-Spec
-1. Keerat Kaur: Data Model, Objective, References
-3. Sujata Giri: Class Diagram
-4. Bhavpreet Singh: Sequence Diagram
+# who did what:
+1. Sujata Giri: Created the Goal and Home Page UI, implemented page navigation and integrated Goal creation with the backend 
+2. Bhavpreet Singh: Created the backend classes, validation, and data storage.
+3. Keerat Kaur: reviewed final integration, removed non code files and final submission
 
 # Functional-Spec
 1. Keerat Kaur: Mockup#1
@@ -21,4 +14,8 @@
 # Any other instruction that users need to know:
 Run the project with Zulu 23 using Maven.
 
+Please run 'Main.java' to run the application
 
+Backend note: data is stored in a SQLite database (data/my-goal-tracker.db) that is created automatically at runtime. No manual database setup is required.
+
+Thank You!
