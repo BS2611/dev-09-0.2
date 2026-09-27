@@ -1,0 +1,21 @@
+# IntelliJ
+.idea/
+*.iml
+
+# Maven
+target/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Runtime database
+*.db
+*.sqlite
+*.sqlite3
+
+# Environment/secrets
+.env
+
+# Logs
+*.log
