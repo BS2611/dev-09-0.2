@@ -1,26 +1,21 @@
 # Name of application: My Goal Tracker
-#Version: 0.4
 
-# who did what:
-1. Sujata Giri: Created the Goal and Home Page UI, implemented page navigation and integrated Goal creation with the backend 
-2. Bhavpreet Singh: Created the backend classes, validation, and data storage.
-3. Keerat Kaur: reviewed final integration, removed non code files and final submission
+# Who did What
 
-# Version 0.4 Changes
+# Version 0.4
+1. Keerat Kaur: Implemented permanent saving of Goal data (DAL interface, FileSystemDAL, data/goals.txt) and the success message on the Goal page
+2. Sujata Giri: Implemented the Stored Goals page (JavaFX TableView sorted by creation date, most recent on top) with Back/Refresh buttons and navigation from the Home page
+3. Bhavpreet Singh: Cleaned the project folder (removed non-source files), updated the ReadMe.md, and created the final ZIP
 
-- Added the 'DAL' interface for goal persistence.
-- Integrated 'FileSystemDAL' into the Maven source structure.
-- Added permanent Goal storage using 'data/goals.txt'.
-- Added loading of stored Goals from the file system.
-- Added a Stored Goals page using JavaFX 'TableView'.
-- Added columns for name, description, category, target date, status, progress, and creation date.
-- Sorted Goals by creation date in descending order.
-- Added Create Goal and View Goals navigation.
-- Added Back and Refresh buttons to the Stored Goals page.
-- Removed duplicate Java files from the project root.
-- Ignored runtime data files through '.gitignore'.
-- Tested goal creation, permanent storage, application restart, goal listing, navigation, and Maven tests.
+# Version 0.2
+1. Sujata Giri: Created the Goal and Home Page UI, implemented page navigation and integrated Goal creation with the backend
+2. Bhavpreet Singh: Created the backend classes, validation, and data storage
+3. Keerat Kaur: Reviewed final integration, removed non-code files and final submission
 
+# Technical-Spec
+1. Keerat Kaur: Data Model, Objective, and References
+2. Sujata Giri: Class Diagram
+3. Bhavpreet Singh: Sequence Diagram
 
 # Functional-Spec
 1. Keerat Kaur: Mockup#1
@@ -31,8 +26,8 @@
 # Any other instruction that users need to know:
 Run the project with Zulu 23 using Maven.
 
-Please run 'Main.java' to run the application
+Please run 'Main.java' (package cs151.application) to run the application.
 
-Backend note: data is stored in a SQLite database (data/my-goal-tracker.db) that is created automatically at runtime. No manual database setup is required.
+Data note: Goals are saved permanently in the file data/goals.txt, which is created automatically at runtime. No manual setup is required. The sqlite-jdbc library used by the backend is declared as a dependency in pom.xml.
 
 Thank You!
