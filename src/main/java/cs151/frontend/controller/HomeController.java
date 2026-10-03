@@ -11,4 +11,9 @@ public class HomeController {
     private void openGoalPage() throws IOException {
         Main.showGoalPage();
     }
+
+    @FXML
+    private void openGoalListPage() throws IOException {
+        Main.showGoalListPage();
+    }
 }

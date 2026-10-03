@@ -31,6 +31,10 @@ public class Main extends Application {
         scene.setRoot(loadView("goal-view.fxml"));
     }
 
+    public static void showGoalListPage() throws IOException {
+        scene.setRoot(loadView("goal-list-view.fxml"));
+    }
+
     private static Parent loadView(String fileName) throws IOException {
         FXMLLoader loader = new FXMLLoader(
                 Main.class.getResource("/cs151/frontend/view/" + fileName)
