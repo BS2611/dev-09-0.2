@@ -9,7 +9,8 @@ target/
 .DS_Store
 Thumbs.db
 
-# Runtime database
+# Runtime database and saved goal files
+data/
 *.db
 *.sqlite
 *.sqlite3

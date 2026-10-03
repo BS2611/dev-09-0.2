@@ -31,7 +31,7 @@ import java.util.Optional;
  * <p>Insert methods set the generated id on the passed model object and also return it. Update/delete methods
  * return whether a row was affected. Each write runs in its own transaction and is rolled back on failure.
  */
-public class DataManager {
+public class DataManager implements DAL {
     /** Default runtime database location, relative to the application's working directory. */
     public static final Path DEFAULT_DB_PATH = Paths.get("data", "my-goal-tracker.db");
 

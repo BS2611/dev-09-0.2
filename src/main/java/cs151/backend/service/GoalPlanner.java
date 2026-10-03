@@ -8,8 +8,8 @@ import cs151.backend.model.Goal;
 import cs151.backend.model.Milestone;
 import cs151.backend.model.ProgressEntry;
 import cs151.backend.model.Task;
-import cs151.backend.persistence.DataManager;
 import cs151.backend.persistence.DAL;
+import cs151.backend.persistence.DataManager;
 import cs151.backend.persistence.FileSystemDAL;
 
 import java.time.LocalDate;
@@ -24,8 +24,10 @@ import java.util.List;
 
 public class GoalPlanner {
     private final DataManager dataManager;
+    //Goal persistence uses the DAL abstraction so storage can be changed to db later.
     private final DAL goalDal;
 
+    /** Uses the file system to store goals. */
     public GoalPlanner() {
         this.dataManager = new DataManager();
         this.goalDal = new FileSystemDAL();
@@ -77,17 +79,17 @@ public class GoalPlanner {
                 throw new ValidationException("Goal target date cannot be earlier than a milestone target date.");
             }
         }
-        dataManager.updateGoal(goal);
+        goalDal.updateGoal(goal);
         return goal;
     }
 
     /** Deletes the goal and, by cascade, its milestones, tasks and progress entries. */
     public void deleteGoal(long goalId) {
-        if (!dataManager.deleteGoal(goalId)) throw new NotFoundException("Goal not found.");
+        if (!goalDal.deleteGoal(goalId)) throw new NotFoundException("Goal not found.");
     }
 
     public Goal getGoal(long goalId) {
-        return dataManager.findGoalById(goalId).orElseThrow(() -> new NotFoundException("Goal not found."));
+        return goalDal.findGoalById(goalId).orElseThrow(() -> new NotFoundException("Goal not found."));
     }
 
     public List<Goal> getAllGoals() {
@@ -98,7 +100,7 @@ public class GoalPlanner {
     public Goal updateGoalProgress(long goalId, int progress) {
         Goal goal = getGoal(goalId);
         goal.updateProgress(progress);
-        dataManager.updateGoal(goal);
+        goalDal.updateGoal(goal);
         return goal;
     }
 
@@ -106,13 +108,13 @@ public class GoalPlanner {
     public Goal markGoalCompleted(long goalId) {
         Goal goal = getGoal(goalId);
         goal.markCompleted();
-        dataManager.updateGoal(goal);
+        goalDal.updateGoal(goal);
         return goal;
     }
 
     private void validateGoal(Goal goal) {
         if (goal.getName().isEmpty()) throw new ValidationException("Goal name is required.");
-        dataManager.findGoalByName(goal.getName()).ifPresent(existing -> {
+        goalDal.findGoalByName(goal.getName()).ifPresent(existing -> {
             if (existing.getId() != goal.getId()) throw new DuplicateEntityException("Goal name already exists.");
         });
         if (goal.getCategory() == null || !Goal.CATEGORIES.contains(goal.getCategory())) {
