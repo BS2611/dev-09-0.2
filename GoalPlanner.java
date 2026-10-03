@@ -21,6 +21,7 @@ import java.util.List;
  * {@link ValidationException} (or subclass) whose message can be shown to the user directly.
  */
 
+
 public class GoalPlanner {
     private final DataManager dataManager;
     private final DAL goalDal;
