@@ -20,6 +20,8 @@ import java.util.List;
  * {@link DataManager}. Every method either returns the saved/loaded object or throws a
  * {@link ValidationException} (or subclass) whose message can be shown to the user directly.
  */
+
+
 public class GoalPlanner {
     private final DataManager dataManager;
     //Goal persistence uses the DAL abstraction so storage can be changed to db later.
@@ -37,7 +39,6 @@ public class GoalPlanner {
     }
 
     // ------------------------------------------------------------------ goals
-
     /** Creates and saves a goal. A null/blank status defaults to "Not Started". Creation date is automatic. */
     public Goal createGoal(String name, String description, String category, LocalDate targetDate,
                            String status, int progress) {
